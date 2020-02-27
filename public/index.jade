@@ -1,1 +1,11 @@
-h1 testing {{ foo }}
+section.section
+  .container
+    //- h1.title testing {{ foo }}
+    .columns
+      for site in public.sites._data
+        .column.is-one-third
+          //- != partial("_card", site)
+          != partial("_card", { name: site.name, url: site.url })
+          //- a(href=site.url)
+          //-   h2.subtitle= site.name
+          //-   p= key
